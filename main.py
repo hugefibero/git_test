@@ -1,4 +1,5 @@
 import json
+import os
 
 todos = []
 
@@ -13,10 +14,24 @@ def save():
     with open("todos.json", "w") as f:
         json.dump(todos, f)
 
+def load():
+    global todos
+
+    if not os.path.exists("todos.json"):
+        print("No saved todos found.")
+        return
+
+    try:
+        with open("todos.json", "r") as f:
+            todos = json.load(f)
+        print("Todos loaded.")
+    except Exception as e:
+        print("Failed to load todos:", e)
+
 if __name__ == "__main__":
     print("Todo App v1")
     while True:
-        cmd = input("add/list/save/quit > ")
+        cmd = input("add/list/save/load/quit > ")
 
         if cmd == "add":
             add(input("todo: "))
@@ -26,3 +41,5 @@ if __name__ == "__main__":
             break
         elif cmd == "save":
             save()
+        elif cmd == "load":
+            load()
