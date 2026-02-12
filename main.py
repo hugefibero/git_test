@@ -31,13 +31,13 @@ def load():
 if __name__ == "__main__":
     print("Todo App v1")
     while True:
-        cmd = input("add/list/save/load/quit > ")
+        cmd = input("add/list/save/load/quit, exit > ")
 
         if cmd == "add":
             add(input("todo: "))
         elif cmd == "list":
             list_todos()
-        elif cmd == "quit":
+        elif cmd == "quit" or cmd == "exit":
             break
         elif cmd == "save":
             save()
