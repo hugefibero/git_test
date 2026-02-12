@@ -8,6 +8,7 @@ def list_todos():
         print(f"{i}. {t}")
 
 if __name__ == "__main__":
+    print("Todo App v1")
     while True:
         cmd = input("add/list/quit > ")
 
